@@ -4,7 +4,7 @@ using Printf
 SpikeTime_typed = convert(Array{Float64,1}, SpikeTime)
 U = kde(SpikeTime_typed,bandwidth=10)
 
-p1 = scatter(SpikeTime, SpikeNeuron, xlims=(0,1000), label="", title="Raster Plot", ylabel="Neuron")
+p1 = scatter(SpikeTime, SpikeNeuron, xlims=(0,1000), label="", title="Raster Plot", ylabel="Neuron", ms=3)
 p2 = histogram(SpikeTime, bins=(range(0,1000,step=10)), xlims=(0,1000), label="", title="number of spikes", ylabel="number of spikes")
 p3 = plot(U.x, U.density, xlims=(0, 1000), label="", title="kernel density", xlabel="Time[ms]")
 plot(p1, p2, p3, layout=(3,1), size=(900, 600))
